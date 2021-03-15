@@ -9,4 +9,5 @@ object ListsTasks {
     case Cons(h, t) if n == 0 => Cons(h, t)
     case _ => Nil()
   }
+
 }
