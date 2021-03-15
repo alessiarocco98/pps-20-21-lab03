@@ -13,5 +13,12 @@ class ListsTasksTest {
     println(drop(list, 1))
     println(drop(list, 2))
     println(drop(list, 5))
+
+    /*
+    assertEquals(expectedDropList1, drop(list, 1))
+    assertEquals(expectedDropList2, drop(list, 2))
+    assertEquals(Nil(), drop(list, 5))
+     */
+
   }
 }
