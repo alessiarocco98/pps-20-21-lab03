@@ -26,14 +26,13 @@ object ListsTasks {
     case Cons(_,t) => filter(t)(f)
   }
 
-  var maximum: Int = -1
-  def max(l: List[Int]): Option[Int] = l match {
-    case Nil() if (maximum != -1) => Some(maximum)
-    case Cons(h, t) if (h >= maximum) => {
-      maximum = h
-      max(t)
+  def max(l: List[Int]): Option[Int] = {
+    def _max(l: List[Int], _maximum: Int): Option[Int] = l match {
+      case Nil() if (_maximum != -1) => Some(_maximum)
+      case Cons(h, t) if (h >= _maximum) => _max(t, h)
+      case Cons(h, t) if (h < _maximum) => _max(t, _maximum)
+      case _ => None()
     }
-    case Cons(h, t) if (h < maximum) => max(t)
-    case _ => None()
+    _max(l, -1)
   }
 }

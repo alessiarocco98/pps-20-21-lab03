@@ -8,6 +8,7 @@ import u02.Optionals.Option._
 class ListsTasksTest {
   val list = Cons(10, Cons(20, Cons(30, Nil())))
   val list2 = Cons(10, Cons(25, Cons(20, Nil())))
+
   @Test def testDrop():Unit = {
     val expectedDropList1: Cons[Int] = Cons(20, Cons(30, Nil()))
     val expectedDropList2: Cons[Int] = Cons(30, Nil())
@@ -26,9 +27,8 @@ class ListsTasksTest {
   }
 
   @Test def testMax():Unit = {
-    //assertEquals(Some(30), max(list))
+    assertEquals(Some(30), max(list))
     assertEquals(Some(25), max(list2))
-    ListsTasks.maximum = - 1
     assertEquals(None(), max(Nil()))
   }
 }
