@@ -25,5 +25,10 @@ class ListsTasksTest {
     assertEquals(expectedFlatMapList2, ListsTasks.flatMap(list)(v => Cons(v+1, Cons(v+2, Nil()))))
   }
 
-
+  @Test def testMax():Unit = {
+    //assertEquals(Some(30), max(list))
+    assertEquals(Some(25), max(list2))
+    ListsTasks.maximum = - 1
+    assertEquals(None(), max(Nil()))
+  }
 }

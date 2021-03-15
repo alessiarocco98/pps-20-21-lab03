@@ -25,4 +25,15 @@ object ListsTasks {
     case Cons(h,t) if (f(h)) => flatMap(t)(v => Cons(v, Nil()))
     case Cons(_,t) => filter(t)(f)
   }
+
+  var maximum: Int = -1
+  def max(l: List[Int]): Option[Int] = l match {
+    case Nil() if (maximum != -1) => Some(maximum)
+    case Cons(h, t) if (h >= maximum) => {
+      maximum = h
+      max(t)
+    }
+    case Cons(h, t) if (h < maximum) => max(t)
+    case _ => None()
+  }
 }
