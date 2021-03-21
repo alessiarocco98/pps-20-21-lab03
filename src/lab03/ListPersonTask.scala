@@ -12,5 +12,5 @@ object ListPersonTask {
     case Teacher(_, course) => Cons(course, Nil())
     case _ => Nil()
   })
-
+  
 }
