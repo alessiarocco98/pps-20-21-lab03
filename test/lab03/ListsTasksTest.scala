@@ -6,8 +6,9 @@ import u03.Lists.List._
 import u02.Optionals.Option._
 
 class ListsTasksTest {
-  val list = Cons(10, Cons(20, Cons(30, Nil())))
-  val list2 = Cons(10, Cons(25, Cons(20, Nil())))
+  private val list = Cons(10, Cons(20, Cons(30, Nil())))
+  private val list2 = Cons(10, Cons(25, Cons(20, Nil())))
+  private val lst = Cons (3 , Cons (7 , Cons (1 , Cons (5 , Nil () ) ) ) )
 
   @Test def testDrop():Unit = {
     val expectedDropList1: Cons[Int] = Cons(20, Cons(30, Nil()))
@@ -30,5 +31,10 @@ class ListsTasksTest {
     assertEquals(Some(30), max(list))
     assertEquals(Some(25), max(list2))
     assertEquals(None(), max(Nil()))
+  }
+
+  @Test def testFold():Unit = {
+    assertEquals(-16, foldLeft(lst)(0)(_ - _))
+//    assertEquals(-8, foldLeft(lst)(0)(_ - _))
   }
 }
